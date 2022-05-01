@@ -138,7 +138,7 @@ class AutoCompleteSearchState extends State<AutoCompleteSearch> {
         builder: (_, data, __) {
           if (data.length > 0) {
             return Padding(
-              padding: const EdgeInsets.only(right: 8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               child: GestureDetector(
                 child: Icon(
                   Icons.clear,
