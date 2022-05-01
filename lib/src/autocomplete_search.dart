@@ -10,31 +10,30 @@ import 'package:google_maps_webservice/places.dart';
 import 'package:provider/provider.dart';
 
 class AutoCompleteSearch extends StatefulWidget {
-  const AutoCompleteSearch({
-    Key? key,
-    required this.sessionToken,
-    required this.onPicked,
-    required this.appBarKey,
-    this.hintText,
-    this.searchingText = "Searching...",
-    this.height = 40,
-    this.contentPadding = EdgeInsets.zero,
-    this.debounceMilliseconds,
-    this.onSearchFailed,
-    required this.searchBarController,
-    this.autocompleteOffset,
-    this.autocompleteRadius,
-    this.autocompleteLanguage,
-    this.autocompleteComponents,
-    this.autocompleteTypes,
-    this.strictbounds,
-    this.region,
-    this.initialSearchString,
-    this.searchForInitialValue,
-    this.autocompleteOnTrailingWhitespace,
-    this.textFieldDecoration,
-  }) : super(key: key);
-  final InputDecoration? textFieldDecoration;
+  const AutoCompleteSearch(
+      {Key? key,
+      required this.sessionToken,
+      required this.onPicked,
+      required this.appBarKey,
+      this.hintText,
+      this.searchingText = "Searching...",
+      this.height = 40,
+      this.contentPadding = EdgeInsets.zero,
+      this.debounceMilliseconds,
+      this.onSearchFailed,
+      required this.searchBarController,
+      this.autocompleteOffset,
+      this.autocompleteRadius,
+      this.autocompleteLanguage,
+      this.autocompleteComponents,
+      this.autocompleteTypes,
+      this.strictbounds,
+      this.region,
+      this.initialSearchString,
+      this.searchForInitialValue,
+      this.autocompleteOnTrailingWhitespace})
+      : super(key: key);
+
   final String? sessionToken;
   final String? hintText;
   final String? searchingText;
@@ -101,11 +100,11 @@ class AutoCompleteSearchState extends State<AutoCompleteSearch> {
       value: provider,
       child: RoundedFrame(
         height: widget.height,
-        padding: const EdgeInsets.only(right: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         color: Theme.of(context).brightness == Brightness.dark
             ? Colors.black54
             : Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(8),
         elevation: 8.0,
         child: Row(
           children: <Widget>[
@@ -124,13 +123,12 @@ class AutoCompleteSearchState extends State<AutoCompleteSearch> {
     return TextField(
       controller: controller,
       focusNode: focus,
-      decoration: widget.textFieldDecoration ??
-          InputDecoration(
-            hintText: widget.hintText,
-            border: InputBorder.none,
-            isDense: true,
-            contentPadding: widget.contentPadding,
-          ),
+      decoration: InputDecoration(
+        hintText: widget.hintText,
+        border: InputBorder.none,
+        isDense: true,
+        contentPadding: widget.contentPadding,
+      ),
     );
   }
 
