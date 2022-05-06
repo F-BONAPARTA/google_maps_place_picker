@@ -371,18 +371,25 @@ class GoogleMapPlacePicker extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 10),
-          RaisedButton(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            child: Text(
-              selectText ?? "Select here",
-              style: const TextStyle(fontSize: 16),
+          Container(
+            width: double.infinity,
+            child: RaisedButton(
+              color: Color(0xFF41b75a),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              child: Text(
+                selectText ?? "Select here",
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4.0),
+              ),
+              onPressed: () {
+                onPlacePicked!(result);
+              },
             ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(4.0),
-            ),
-            onPressed: () {
-              onPlacePicked!(result);
-            },
           ),
         ],
       ),
