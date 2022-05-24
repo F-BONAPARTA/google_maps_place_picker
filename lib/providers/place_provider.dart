@@ -45,17 +45,23 @@ class PlaceProvider extends ChangeNotifier {
 
   Future<void> updateCurrentLocation(bool forceAndroidLocationManager) async {
     try {
-      await Permission.location.request();
-      if (await Permission.location.request().isGranted) {
-        currentPosition = await Geolocator.getCurrentPosition(
-            desiredAccuracy: desiredAccuracy ?? LocationAccuracy.best);
-      } else {
-        currentPosition = null;
-      }
+      currentPosition = await Geolocator.getCurrentPosition(
+          desiredAccuracy: desiredAccuracy ?? LocationAccuracy.best);
     } catch (e) {
-      print(e);
       currentPosition = null;
     }
+    // try {
+    //   await Permission.location.request();
+    //   if (await Permission.location.request().isGranted) {
+    //     currentPosition = await Geolocator.getCurrentPosition(
+    //         desiredAccuracy: desiredAccuracy ?? LocationAccuracy.best);
+    //   } else {
+    //     currentPosition = null;
+    //   }
+    // } catch (e) {
+    //   print(e);
+    //   currentPosition = null;
+    // }
 
     notifyListeners();
   }
