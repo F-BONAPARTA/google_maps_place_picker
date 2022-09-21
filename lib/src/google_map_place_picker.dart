@@ -373,9 +373,14 @@ class GoogleMapPlacePicker extends StatelessWidget {
           const SizedBox(height: 10),
           Container(
             width: double.infinity,
-            child: RaisedButton(
-              color: Color(0xFF41b75a),
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF41b75a),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+              ),
               child: Text(
                 selectText ?? "Select here",
                 style: const TextStyle(
@@ -383,14 +388,31 @@ class GoogleMapPlacePicker extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4.0),
-              ),
               onPressed: () {
                 onPlacePicked!(result);
               },
             ),
           ),
+          // Container(
+          //   width: double.infinity,
+          //   child: RaisedButton(
+          //     color: Color(0xFF41b75a),
+          //     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          //     child: Text(
+          //       selectText ?? "Select here",
+          //       style: const TextStyle(
+          //         fontSize: 16,
+          //         color: Colors.white,
+          //       ),
+          //     ),
+          //     shape: RoundedRectangleBorder(
+          //       borderRadius: BorderRadius.circular(4.0),
+          //     ),
+          //     onPressed: () {
+          //       onPlacePicked!(result);
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );
